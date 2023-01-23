@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script>
+      // 1. A부터 B까지 범위를 지정했을 때 범위 안의 숫자를 모두 곱하는 함수
+      // function multiplyAll(A, B) {
+      //   let result = 1;
+      //   for (let i = A; i <= B; i++) {
+      //     result *= i;
+      //   }
+      //   return result;
+      // }
+
+      // console.log(multiplyAll(1, 2));
+      // console.log(multiplyAll(1, 3));
+
+      // 다음 과정에 따라 최대값 찾는 max() 함수 만들기
+      // 2. 매개변수로 max([1,2,3,4])와 같은 배열을 받는 max() 함수
+      // const max = function (array) {
+      //   let output = array[0];
+      //   for (const item of array) {
+      //     if (output < item) output = item;
+      //   }
+      //   return output;
+      // };
+
+      // console.log(max([1, 2, 3, 4]));
+
+      // 3. 매개변수로 max(1,2,3,4)와 같이 숫자를 받는 max() 함수
+      // const max = function (...array) {
+      //   let output = array[0];
+      //   for (const item of array) {
+      //     if (output < item) output = item;
+      //   }
+      //   return output;
+      // };
+
+      // console.log(max(1, 2, 3, 4));
+
+      // 4. max([1,2,3,4]) 형태와 max(1,2,3,4) 형태를 모두 입력할 수 있는 max() 함수
+      const max = function (first, ...rests) {
+        let output;
+        let items;
+        if (Array.isArray(first)) {
+          output = first[0];
+          items = first;
+        } else if (typeof first === "number") {
+          output = first;
+          items = rests;
+        }
+        for (const item of items) {
+          if (output < item) {
+            output = item;
+          }
+        }
+        return output;
+      };
+
+      console.log(`max(배열): ${max([1, 2, 3, 4])}`);
+      console.log(`max(숫자, ...): ${max(1, 2, 3, 4)}`);
+    </script>
+  </head>
+  <body></body>
+</html>

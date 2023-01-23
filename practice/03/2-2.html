@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch 조건문을 if 조건문으로 변환하기</title>
+    <script>
+      const date = new Date();
+      const hour = date.getHours();
+
+      switch (true) {
+        case hour < 11:
+          alert("아침먹을 시간입니다");
+          break;
+        case hour < 15:
+          alert("점심 먹을 시간입니다");
+          break;
+        default:
+          alert("저녁 먹을 시간입니다");
+          break;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

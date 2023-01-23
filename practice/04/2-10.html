@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>break 키워드 활용</title>
+    <script>
+      for (let i = 0; true; i++) {
+        alert(i + "번째 반복문입니다");
+        const isContinue = confirm("계속 하시겠습니까?");
+        if (!isContinue) {
+          break;
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

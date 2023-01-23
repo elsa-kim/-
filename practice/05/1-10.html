@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>매개변수의 자료형에 따라 다르게 작동하는 min() 함수</title>
+    <script>
+      function min(first, ...rests) {
+        let output;
+        let items;
+
+        if (Array.isArray(first)) {
+          output = first[0];
+          items = first;
+        } else if (typeof first === "number") {
+          output = first;
+          items = rests;
+        }
+
+        for (const item of items) {
+          if (output > item) {
+            output = item;
+          }
+        }
+        return output;
+      }
+
+      console.log(`min(배열): ${min([52, 273, 32, 103, 275, 24, 57])}`);
+      console.log(`min(숫자, ...): ${min(52, 273, 32, 103, 275, 24, 57)}`);
+    </script>
+  </head>
+  <body></body>
+</html>

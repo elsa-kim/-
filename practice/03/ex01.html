@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script>
+      // 1. 사용자로부터 숫자 2개 입력받아 첫 번째 입력받은 수가 큰지, 두번째 수가 큰지 구하는 프로그램
+      //   const a = Number(prompt("첫 번째 숫자", ""));
+      //   const b = Number(prompt("두 번째 숫자", ""));
+
+      //   if (a > b) {
+      //     alert("첫 번째로 입력한 숫자가 더 큽니다.");
+      //   } else if (a === b) {
+      //     alert("두 숫자가 같습니다.");
+      //   } else {
+      //     alert("두 번째로 입력한 숫자가 더 큽니다.");
+      //   }
+
+      // 2. 사용자에게 숫자를 입력받아 양수, 0, 음수를 구분하는 프로그램
+      //   const a = Number(prompt("숫자를 입력해주세요", ""));
+
+      //   if (a > 0) {
+      //     alert("양수입니다");
+      //   } else if (a === 0) {
+      //     alert("0 입니다");
+      //   } else {
+      //     alert("음수입니다");
+      //   }
+
+      // 3. 사용자에게 숫자를 입력받아 홀수와 짝수를 구분하는 프로그램
+      //   const a = Number(prompt("숫자를 입력해주세요", ""));
+
+      //   if (a % 2 === 0) {
+      //     alert("짝수입니다");
+      //   } else {
+      //     alert("홀수입니다");
+      //   }
+
+      // 4. 현재가 몇 월인지 확인하고, 계절을 구분하는 프로그램
+      const a = Number(prompt("월을 입력해주세요", ""));
+
+      if (a < 3 || a > 11) {
+        alert("겨울입니다");
+      } else if (a < 6) {
+        alert("봄입니다");
+      } else if (a < 9) {
+        alert("여름입니다");
+      } else {
+        alert("가을입니다");
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

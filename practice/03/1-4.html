@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>중첩 조건문으로 시간 파악하기</title>
+    <script>
+      const date = new Date();
+      const hour = date.getHours();
+
+      if (hour < 11) {
+        alert("아침 먹을 시간입니다");
+      } else {
+        if (hour < 15) {
+          alert("점심 먹을 시간입니다");
+        } else {
+          alert("저녁 먹을 시간입니다");
+        }
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

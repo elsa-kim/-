@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script>
+      // 1. 2-8 예제에서 if 조건문을 switch 조건문으로 변경해 구현하기
+      // const rawInput = prompt("태어난 해를 입력해주세요", "");
+      // const year = Number(rawInput);
+      // const e = year % 12;
+
+      // let result;
+      // /*
+      // switch (true) {
+      //   case e === 0:
+      //     result = "원숭이";
+      //     break;
+      //   case e === 1:
+      //     result = "닭";
+      //     break;
+      //   case e === 2:
+      //     result = "개";
+      //     break;
+      //   case e === 3:
+      //     result = "돼지";
+      //     break;
+      //   case e === 4:
+      //     result = "쥐";
+      //     break;
+      //   case e === 5:
+      //     result = "소";
+      //     break;
+      //   case e === 6:
+      //     result = "호랑이";
+      //     break;
+      //   case e === 7:
+      //     result = "토끼";
+      //     break;
+      //   case e === 8:
+      //     result = "용";
+      //     break;
+      //   case e === 9:
+      //     result = "뱀";
+      //     break;
+      //   case e === 10:
+      //     result = "말";
+      //     break;
+      //   case e === 11:
+      //     result = "양";
+      //     break;
+      // }
+      // */
+      // switch (e) {
+      //   case 0:
+      //     result = "원숭이";
+      //     break;
+      //   case 1:
+      //     result = "닭";
+      //     break;
+      //   case 2:
+      //     result = "개";
+      //     break;
+      //   case 3:
+      //     result = "돼지";
+      //     break;
+      //   case 4:
+      //     result = "쥐";
+      //     break;
+      //   case 5:
+      //     result = "소";
+      //     break;
+      //   case 6:
+      //     result = "호랑이";
+      //     break;
+      //   case 7:
+      //     result = "토끼";
+      //     break;
+      //   case 8:
+      //     result = "용";
+      //     break;
+      //   case 9:
+      //     result = "뱀";
+      //     break;
+      //   case 10:
+      //     result = "말";
+      //     break;
+      //   case 11:
+      //     result = "양";
+      //     break;
+      // }
+
+      // alert(`${year}년에 태어났다면 ${result} 띠입니다`);
+
+      // 2. 동물이름을 '자,축,인,묘,진,사,오,미,신,유,술,해'로 변경하고, 입력한 연도의 ' 갑,을,병,정,무,기,경,신,임,계'를 계산해 이를 합쳐 출력하는 프로그램
+      // 연도 10으로 나눈 나머지 0이 경
+      const rawInput = prompt("태어난 해를 입력해주세요", "");
+      const year = Number(rawInput);
+
+      let 간 = "경,신,임,계,갑,을,병,정,무,기".split(",")[year % 10];
+
+      let 띠 = "신,유,술,해,자,축,인,묘,진,사,오,미".split(",")[year % 12];
+
+      alert(`${year}년은 ${간}${띠} 년입니다`);
+    </script>
+  </head>
+  <body></body>
+</html>

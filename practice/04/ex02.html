@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script>
+      // 1. 1부터 100까지의 숫자를 곱한 값을 계산하는 프로그램
+      // let output = 1;
+
+      // for (let i = 1; i <= 100; i++) {
+      //   output *= i;
+      // }
+      // console.log(`1~100의 숫자를 모두 곱하면, ${output}입니다`);
+
+      // 2. 마름모 모양 피라미드 만들기
+      let output = "";
+      const size = 5;
+
+      for (let i = 1; i <= size; i++) {
+        for (let j = size; j > i; j--) {
+          output += " ";
+        }
+        for (let k = 1; k <= 2 * i - 1; k++) {
+          output += "*";
+        }
+        output += "\n";
+      }
+      for (let l = size - 1; l > 0; l--) {
+        for (let m = 1; m <= size - l; m++) {
+          output += " ";
+        }
+        for (let n = 1; n <= 2 * l - 1; n++) {
+          output += "*";
+        }
+        output += "\n";
+      }
+
+      console.log(output);
+    </script>
+  </head>
+  <body></body>
+</html>

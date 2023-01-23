@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>if else 조건문으로 짝수와 홀수 구분하기 1</title>
+    <script>
+      const 입력 = prompt("정수를 입력해주세요", "");
+      const 끝자리 = 입력[입력.length - 1];
+
+      if (끝자리 === "0" || 끝자리 === "2" || 끝자리 === "4" || 끝자리 === "6" || 끝자리 === "8") {
+        alert(`${입력}은 짝수입니다`);
+      } else {
+        alert(`${입력}은 홀수입니다`);
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

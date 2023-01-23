@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>arguments를 사용한 가변 매개변수 함수</title>
+    <script>
+      function sample() {
+        console.log(arguments);
+        for (let i = 0; i < arguments.length; i++) {
+          console.log(`${i}번째 요소: ${arguments[i]}`);
+        }
+      }
+      sample(1, 2);
+      sample(1, 2, 3);
+      sample(1, 2, 3, 4);
+    </script>
+  </head>
+  <body></body>
+</html>

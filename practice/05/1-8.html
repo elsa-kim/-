@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>나머지 매개변수를 사용한 min() 함수</title>
+    <script>
+      function min(...items) {
+        let output = items[0];
+        for (const item of items) {
+          if (output > item) {
+            output = item;
+          }
+        }
+        return output;
+      }
+
+      console.log("min(52, 273, 32, 103, 275, 24, 57");
+      console.log(`= ${min(52, 273, 32, 103, 275, 24, 57)}`);
+    </script>
+  </head>
+  <body></body>
+</html>
