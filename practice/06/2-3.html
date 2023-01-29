@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON.stringify() 메소드</title>
+    <script>
+      const data = [
+        {
+          name: "혼자 공부하는 파이썬",
+          price: 18000,
+          publisher: "한빛미디어",
+        },
+        {
+          name: "HTML5 웹 프로그래밍 입문",
+          price: 26000,
+          publisher: "한빛아카데미",
+        },
+      ];
+
+      console.log(JSON.stringify(data));
+      console.log(JSON.stringify(data, null, 2));
+    </script>
+  </head>
+  <body></body>
+</html>

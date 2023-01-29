@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배열의 filter() 메소드</title>
+    <script>
+      const numbers = [0, 1, 2, 3, 4, 5];
+      const evenNumbers = numbers.filter(function (value) {
+        return value % 2;
+      });
+
+      console.log(`원래 배열 : ${numbers}`);
+      console.log(`짝수만 추출 : ${evenNumbers}`);
+    </script>
+  </head>
+  <body></body>
+</html>

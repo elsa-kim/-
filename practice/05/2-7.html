@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>타이머 걸기</title>
+    <script>
+      setTimeout(() => {
+        console.log("1초 뒤에 실행됩니다");
+      }, 1 * 1000);
+
+      let count = 0;
+      setInterval(() => {
+        console.log(`1초마다 실행됩니다(${count}번째)`);
+        count++;
+      }, 1 * 1000);
+    </script>
+  </head>
+  <body></body>
+</html>

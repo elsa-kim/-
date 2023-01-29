@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script>
+      // 1. filter 함수의 콜백함수 부분을 채워서 1)홀수만 추출, 2)100 이하의 수만 추출, 3)5로 나눈 나머지가 0인 수만 추출
+      // let numbers = [273, 25, 75, 52, 103, 32, 57, 24, 76];
+
+      // numbers = numbers.filter((value) => value % 2 === 1);
+      // numbers = numbers.filter((value) => value <= 100);
+      // numbers = numbers.filter((value) => value % 5 === 0);
+      // console.log(numbers);
+
+      // 2. 다음 코드를 배열의 forEach 메소드를 사용하는 형태로 변경
+      const array = ["사과", "배", "귤", "바나나"];
+
+      console.log("# for in 반복문");
+      for (const i in array) {
+        console.log(i);
+      }
+      console.log("# for of 반복문");
+      for (const i of array) {
+        console.log(i);
+      }
+
+      console.log("# forEach 메소드");
+      array.forEach((_, index) => {
+        console.log(index);
+      });
+      array.forEach((value) => {
+        console.log(value);
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

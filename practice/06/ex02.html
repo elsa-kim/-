@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 확인문제</title>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+    <script>
+      // 1. sin(90도) 값 구하기
+      // const degree = 90;
+
+      // console.log(Math.sin((degree * Math.PI) / 180));
+
+      // 2. Lodash 라이브러리의 _.orderBy() 메소드 사용법 살펴보고 다음 배열을 이름(name)으로 오름차순 정렬
+      const books = [
+        {
+          name: "혼자 공부하는 파이썬",
+          price: 18000,
+          publisher: "한빛미디어",
+        },
+        {
+          name: "HTML5 웹 프로그래밍 입문",
+          price: 26000,
+          publisher: "한빛아카데미",
+        },
+        {
+          name: "머신러닝 딥러닝 실전 개발 입문",
+          price: 30000,
+          publisher: "위키북스",
+        },
+        {
+          name: "딥러닝을 위한 수학",
+          price: 25000,
+          publisher: "위키북스",
+        },
+      ];
+
+      console.log(_.orderBy(books, (book) => book.name));
+    </script>
+  </head>
+  <body></body>
+</html>

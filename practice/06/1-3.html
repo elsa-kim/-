@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동적으로 객체 속성 제거하기</title>
+    <script>
+      const student = {};
+      student.이름 = "윤인성";
+      student.취미 = "악기";
+      student.장래희망 = "생명공학자";
+
+      delete student.장래희망;
+
+      console.log(JSON.stringify(student, null, 2));
+    </script>
+  </head>
+  <body></body>
+</html>
