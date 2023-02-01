@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>웹 브라우저에 데이터를 저장하는 localStorage 객체와 활용하기</title>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const p = document.querySelector("p");
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
+
+      const savedValue = localStorage.getItem("input");
+      if (savedValue) {
+        input.value = savedValue;
+        p.textContent = `이전 실행 때의 마지막 값 : ${savedValue}`;
+      }
+
+      input.addEventListener("keyup", (event) => {
+        const value = event.currentTarget.value;
+        localStorage.setItem("input", value);
+      });
+
+      button.addEventListener("click", (event) => {
+        localStorage.clear();
+        input.value = "";
+      });
+    });
+  </script>
+  <body>
+    <p></p>
+    <button>지우기</button>
+    <input type="text" />
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>할 일 목록 만들기</title>
+  </head>
+  <body>
+    <h1>할 일 목록</h1>
+    <input id="todo" />
+    <button id="add-button">추가하기</button>
+    <div id="todo-list"></div>
+  </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.querySelector("#todo");
+      const todoList = document.querySelector("#todo-list");
+      const addButton = document.querySelector("#add-button");
+
+      let keyCount = 0;
+
+      const addTodo = () => {
+        if (input.value.trim() === "") {
+          alert("할 일을 입력해주세요");
+          return;
+        }
+
+        const item = document.createElement("div");
+        const checkbox = document.createElement("input");
+        const text = document.createElement("span");
+        const button = document.createElement("button");
+
+        const key = keyCount;
+        keyCount += 1;
+
+        item.setAttribute("data-key", key);
+        item.appendChild(checkbox);
+        item.appendChild(text);
+        item.appendChild(button);
+        todoList.appendChild(item);
+
+        checkbox.type = "checkbox";
+        checkbox.addEventListener("change", (event) => {
+          item.style.textDecoration = event.target.checked ? "line-through" : "";
+        });
+
+        text.textContent = input.value;
+
+        button.textContent = "제거하기";
+        button.addEventListener("click", () => {
+          removeTodo(key);
+        });
+
+        input.value = "";
+      };
+
+      const removeTodo = (key) => {
+        const item = document.querySelector(`[data-key="${key}"]`);
+        todoList.removeChild(item);
+      };
+
+      addButton.addEventListener("click", addTodo);
+      input.addEventListener("keyup", (event) => {
+        const ENTER = 13;
+        if (event.keyCode === ENTER) {
+          addTodo();
+        }
+      });
+    });
+  </script>
+</html>

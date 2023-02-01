@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>키로 별 움직이기</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const star = document.querySelector("h1");
+        star.style.position = "absolute";
+
+        let [x, y] = [0, 0];
+        const block = 20;
+        const print = () => {
+          star.style.left = `${x * block}px`;
+          star.style.top = `${y * block}px`;
+        };
+        print();
+
+        const [left, up, right, down] = [37, 38, 39, 40];
+        document.body.addEventListener("keydown", (event) => {
+          switch (event.keyCode) {
+            case left:
+              x -= 1;
+              break;
+            case up:
+              y -= 1;
+              break;
+            case right:
+              x += 1;
+              break;
+            case down:
+              y += 1;
+              break;
+          }
+          print();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>*</h1>
+  </body>
+</html>

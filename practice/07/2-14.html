@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>글자 수 출력하기</title>
+  </head>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const textarea = document.querySelector("textarea");
+      const h1 = document.querySelector("h1");
+      let timerId;
+
+      textarea.addEventListener("focus", (event) => {
+        timerId = setInterval(() => {
+          const length = textarea.value.length;
+          h1.textContent = `글자 수 : ${length}`;
+        }, 50);
+      });
+      textarea.addEventListener("blur", (event) => {
+        clearInterval(timerId);
+      });
+    });
+  </script>
+  <body>
+    <h1></h1>
+    <textarea></textarea>
+  </body>
+</html>

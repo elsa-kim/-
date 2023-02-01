@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>체크 때만 링크 활성화하기</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let status = false;
+
+        const checkbox = document.querySelector("input");
+        checkbox.addEventListener("change", (event) => {
+          status = event.currentTarget.checked;
+        });
+
+        const link = document.querySelector("a");
+        link.addEventListener("click", (event) => {
+          if (!status) {
+            event.preventDefault();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <input type="checkbox" />
+    <span>링크 활성화</span>
+    <br />
+    <a href="http://hanbit.co.kr">한빛미디어</a>
+  </body>
+</html>
