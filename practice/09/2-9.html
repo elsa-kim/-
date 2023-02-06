@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>게터(getter)와 세터(setter) 메소드</title>
+    <script>
+      class Square {
+        #length;
+
+        constructor(length) {
+          this.setLength(length);
+        }
+        setLength(value) {
+          if (value <= 0) {
+            throw "길이는 0보다 커야 합니다";
+          }
+          this.#length = value;
+        }
+        getLength(value) {
+          return this.#length;
+        }
+        getPerimeter() {
+          return 4 * this.#length;
+        }
+
+        getArea() {
+          return this.#length * this.#length;
+        }
+      }
+
+      const square = new Square(10);
+      console.log(`한 변의 길이는 ${square.getLength()}입니다`);
+
+      square.setLength(-10);
+    </script>
+  </head>
+  <body></body>
+</html>

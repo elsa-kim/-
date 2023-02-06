@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메소드에서 순서대로 메소드 호출하기</title>
+    <script>
+      class Lifecycle {
+        call() {
+          this.a();
+          this.b();
+          this.c();
+        }
+        a() {
+          console.log("a() 메소드를 호출합니다.");
+        }
+        b() {
+          console.log("b() 메소드를 호출합니다.");
+        }
+        c() {
+          console.log("c() 메소드를 호출합니다.");
+        }
+      }
+
+      new Lifecycle().call();
+    </script>
+  </head>
+  <body></body>
+</html>

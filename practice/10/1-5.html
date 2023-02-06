@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>리액트를 활용한 현재 시간 출력 프로그램</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            time: new Date(),
+          };
+        }
+
+        render() {
+          return <h1>{this.state.time.toLocaleTimeString()}</h1>;
+        }
+
+        componentDidMount() {
+          this.timeId = setInterval(() => {
+            this.setState({
+              time: new Date(),
+            });
+          }, 1000);
+        }
+
+        componentWillUnmount() {
+          clearInterval(this.timeId);
+        }
+      }
+
+      const container = document.getElementById("root");
+      ReactDOM.render(<App />, container);
+    </script>
+  </body>
+</html>

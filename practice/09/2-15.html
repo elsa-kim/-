@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>toString() 메소드 오버라이드하기</title>
+    <script>
+      class Pet {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        toString() {
+          return `이름 : ${this.name}\n나이 : ${this.age}살`;
+        }
+      }
+
+      const pet = new Pet("구름", 6);
+      alert(pet);
+      console.log(pet + "");
+    </script>
+  </head>
+  <body></body>
+</html>

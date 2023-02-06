@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부모에서 자식의 state 속성 변경하기</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            time: new Date(),
+          };
+        }
+
+        ComponentDidMount() {
+          this.timerId = setInterval(() => {
+            this.setState({
+              time: new Date(),
+            });
+          }, 1000);
+        }
+
+        ComponentWillUnmount() {
+          clearInterval(this.timerId);
+        }
+
+        render() {
+          return (
+            <ul>
+              <Item value={this.state.time.toLocaleString()} />
+              <Item value={this.state.time.toLocaleString()} />
+              <Item value={this.state.time.toLocaleString()} />
+            </ul>
+          );
+        }
+      }
+
+      class Item extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            value: props.value,
+          };
+        }
+
+        ComponentDidUpdate(prevProps) {
+          if (prevProps.value !== this.props.value) {
+            this.setState({
+              value: this.props.value,
+            });
+          }
+        }
+
+        render() {
+          return <li>{this.state.value}</li>;
+        }
+      }
+
+      const container = document.getElementById("root");
+      ReactDOM.render(<App />, container);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오버라이드</title>
+    <script>
+      class Lifecycle {
+        call() {
+          this.a();
+          this.b();
+          this.c();
+        }
+        a() {
+          console.log("a() 메소드를 호출합니다.");
+        }
+        b() {
+          console.log("b() 메소드를 호출합니다.");
+        }
+        c() {
+          console.log("c() 메소드를 호출합니다.");
+        }
+      }
+
+      class Child extends Lifecycle {
+        a() {
+          console.log("자식의 a() 메소드입니다");
+        }
+      }
+      new Child().call();
+    </script>
+  </head>
+  <body></body>
+</html>

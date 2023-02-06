@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>부모에서 자식의 state 속성 변경하기</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            value: "",
+          };
+          this.changeParent = this.changeParent.bind(this);
+        }
+
+        render() {
+          return (
+            <div>
+              <CustomInput onChange={this.changeParent} />
+              <h1>{this.state.value}</h1>
+            </div>
+          );
+        }
+        changeParent(event) {
+          this.setState({
+            value: event.target.value,
+          });
+        }
+      }
+
+      class CustomInput extends React.Component {
+        render() {
+          return (
+            <div>
+              <input onChange={this.props.onChange} />
+            </div>
+          );
+        }
+      }
+
+      const container = document.getElementById("root");
+      ReactDOM.render(<App />, container);
+    </script>
+  </body>
+</html>

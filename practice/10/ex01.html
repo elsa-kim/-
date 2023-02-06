@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리 연습문제</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // 1. 체크했을 때 작동하는 타이머 프로그램
+      //   class App extends React.Component {
+      //     constructor(props) {
+      //       super(props);
+      //       this.state = {
+      //         count: 0,
+      //       };
+      //       this.timer;
+      //       this.handleClick = this.handleClick.bind(this);
+      //     }
+      //     render() {
+      //       return (
+      //         <div>
+      //           <input type="checkbox" onClick={this.handleClick} />
+      //           타이머 활성화
+      //           <h1>{this.state.count}초</h1>
+      //         </div>
+      //       );
+      //     }
+      //     handleClick(event) {
+      //       if (event.currentTarget.checked) {
+      //         this.timerId = setInterval(() => {
+      //           this.setState({
+      //             count: this.state.count + 1,
+      //           });
+      //         }, 1000);
+      //       } else {
+      //         clearInterval(this.timerId);
+      //       }
+      //     }
+      //   }
+
+      //   const container = document.getElementById("root");
+      //   ReactDOM.render(<App />, container);
+
+      // 2. 단위 환산 프로그램
+      //   class App extends React.Component {
+      //     constructor(props) {
+      //       super(props);
+      //       this.state = {
+      //         inputN: 0,
+      //         changeV: 10,
+      //       };
+      //       this.inputChange = this.inputChange.bind(this);
+      //       this.selectChange = this.selectChange.bind(this);
+      //     }
+
+      //     render() {
+      //       return (
+      //         <div>
+      //           <input type="text" value={this.state.inputN} onChange={this.inputChange} />
+      //           cm = <span>{+this.state.inputN * +this.state.changeV}</span>
+      //           <select onChange={this.selectChange}>
+      //             <option value="10">mm</option>
+      //             <option value="0.01">m</option>
+      //             <option value="0.393701">inch</option>
+      //           </select>
+      //         </div>
+      //       );
+      //     }
+
+      //     inputChange(event) {
+      //       const { value } = event.target;
+
+      //       this.setState({
+      //         ...this.state,
+      //         inputN: value,
+      //       });
+      //     }
+
+      //     selectChange(event) {
+      //       const { value } = event.target;
+
+      //       this.setState({
+      //         ...this.state,
+      //         changeV: value,
+      //       });
+      //     }
+      //   }
+
+      //   const container = document.getElementById("root");
+      //   ReactDOM.render(<App />, container);
+
+      // 3. 글자 수 세는 프로그램(시간 설정)
+      class App extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
+            length: 0,
+          };
+          this.onCount = this.onCount.bind(this);
+          this.offCount = this.offCount.bind(this);
+          this.timerId;
+        }
+
+        render() {
+          return (
+            <div>
+              <h1>글자 수 : {this.state.length}</h1>
+              <textarea onFocus={this.onCount} onBlur={this.offCount}></textarea>
+            </div>
+          );
+        }
+        onCount(event) {
+          this.timerId = setInterval(() => {
+            this.setState({
+              length: event.target.value.length,
+            });
+          }, 50);
+        }
+        offCount(event) {
+          clearInterval(this.timerId);
+        }
+      }
+
+      const container = document.getElementById("root");
+      ReactDOM.render(<App />, container);
+    </script>
+  </body>
+</html>
