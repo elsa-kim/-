@@ -15,8 +15,10 @@
       class App extends React.Component {
         constructor(props) {
           super(props);
+          // 지난 설정 불러오기
           this.state = this.load();
 
+          // 메소드 바인드
           this.textChange = this.textChange.bind(this);
           this.textKeyDown = this.textKeyDown.bind(this);
           this.buttonClick = this.buttonClick.bind(this);
@@ -30,11 +32,14 @@
         load() {
           let output;
           try {
+            // state 속성 전체 읽어들이기
             output = JSON.parse(localStorage.state);
           } catch (e) {}
+          // 속성 제대로 존재하는지 확인
           if (output !== undefined && output.keyCount !== undefined && output.currentValue !== undefined) {
             output = JSON.parse(localStorage.state);
           } else {
+            // 속성 없거나 제대로 되어있지 않으면 초기값 할당
             output = {
               keyCount: 0,
               currentValue: "",
@@ -56,6 +61,7 @@
               <div>
                 {this.state.todos.map((todo) => {
                   return (
+                    // todos.map() 메소드 활용해 컴포넌트 배열 만들기
                     <TodoItem
                       dataKey={todo.key}
                       isDone={todo.isDone}
@@ -75,6 +81,7 @@
           });
         }
         textKeyDown(event) {
+          // 입력양식에서 엔터 키 입력했을 때도 버튼 클릭한 것과 같은 효과
           const ENTER = 13;
           if (event.keyCode === ENTER) {
             this.buttonClick();
@@ -83,6 +90,7 @@
         buttonClick(event) {
           if (this.state.currentValue.trim() !== "") {
             this.setState({
+              // 전개연산자 활용해 기존 배열 복사하고 뒤에 요소 추가, setState() 메소드 호출해야 배열 변경이 화면에 반영
               todos: [
                 ...this.state.todos,
                 {
@@ -98,13 +106,16 @@
         }
         removeItem(key) {
           this.setState({
+            // filter() 메소드 활용해 기존 배열에서 요소 재거
             todos: this.state.todos.filter((todo) => {
               return todo.key !== key;
             }),
           });
         }
         changeCheckData(key, changed) {
+          // 전개연산자로 배열 복사
           let target = [...this.state.todos];
+          // 변경된 요소 찾고 isDone 속성 변경
           target.filter((todo) => todo.key === key)[0].isDone = changed;
           this.setState({
             todos: target,
@@ -131,6 +142,7 @@
               <button onClick={() => this.props.removeItem(this.props.dataKey)}>제거</button>
             </div>
           );
+          // 버튼 onClick = 부모에게 어떤 항목 제거 버튼 클릭했는지 알려줌
         }
 
         checkboxClick() {
@@ -138,6 +150,7 @@
           this.props.changeCheckData(this.props.dataKey, changed);
         }
 
+        // isDone 속성이 부모로부터 변경되면 출력에 반영
         componentDidUpdate(prevProps) {
           if (prevProps.isDone !== this.props.isDone) {
             this.setState({

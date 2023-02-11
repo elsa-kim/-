@@ -13,6 +13,7 @@
         select.addEventListener("change", (event) => {
           const options = event.currentTarget.options;
           const list = [];
+          // options 속성에는 forEach() 메소드 없어 반복문으로 돌려야 됨
           for (const option of options) {
             if (option.selected) {
               list.push(option.textContent);
